@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.neo4j</groupId>
+    <artifactId>neo4j-ogm-demo-osgi</artifactId>
+    <version>1.0.0</version>
+
+    <packaging>pom</packaging>
+
+    <name>Neo4j OGM OSGi Demo</name>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <releases.repo.id>placeholder-releases.repo.id</releases.repo.id>
+        <releases.repo.url>placeholder-releases.repo.url</releases.repo.url>
+        <snapshots.repo.id>placeholder-snapshots.repo.id</snapshots.repo.id>
+        <snapshots.repo.url>placeholder-snapshots.repo.url</snapshots.repo.url>
+
+        <osgi.core.version>7.0.0</osgi.core.version>
+        <osgi.cmpn.version>7.0.0</osgi.cmpn.version>
+
+        <neo4j-ogm.version>4.0.0-SNAPSHOT</neo4j-ogm.version>
+
+        <maven-bundle-plugin.version>4.2.1</maven-bundle-plugin.version>
+        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
+
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.release>11</maven.compiler.release>
+
+        <!-- Override version for maven-install-plugin due to a bug in the latest version (3.0.0-M1) preventing the
+        installation of artifacts of package type feature. See: https://issues.apache.org/jira/browse/MINSTALL-151 -->
+        <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
+        <!-- Override version for maven-deploy-plugin due to a bug similar to the maven-install-plugin -->
+        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+
+    </properties>
+
+    <distributionManagement>
+        <repository>
+            <id>${releases.repo.id}</id>
+            <url>${releases.repo.url}</url>
+        </repository>
+        <snapshotRepository>
+            <id>${snapshots.repo.id}</id>
+            <url>${snapshots.repo.url}</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <modules>
+        <module>demo-api</module>
+        <module>demo-model</module>
+        <module>demo-impl</module>
+        <module>demo-client</module>
+        <module>demo-feature</module>
+        <module>demo-itest</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.osgi</groupId>
+                <artifactId>osgi.core</artifactId>
+                <version>${osgi.core.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.osgi</groupId>
+                <artifactId>osgi.cmpn</artifactId>
+                <version>${osgi.cmpn.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.neo4j</groupId>
+                <artifactId>neo4j-ogm-api</artifactId>
+                <version>${neo4j-ogm.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.neo4j</groupId>
+                <artifactId>neo4j-ogm-core</artifactId>
+                <version>${neo4j-ogm.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.neo4j</groupId>
+                <artifactId>neo4j-ogm-bolt-driver</artifactId>
+                <version>${neo4j-ogm.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>maven-bundle-plugin</artifactId>
+                    <version>${maven-bundle-plugin.version}</version>
+                    <extensions>true</extensions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire-plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+            </plugin>
+        </plugins>
+
+    </build>
+
+</project>
