@@ -1,5 +1,45 @@
 # Neo4j OGM Demonstrator in OSGi environments
 
+## Modules and purpose
+
+| Modules       | General purpose                                  | OSGi integration             |
+|:-------------:|-------------------------------------------------:|-----------------------------:|
+| Model         | Implements the data model                        | Fragment Host: org.neo4j.ogm-core
+| API           | Contract definition                              |
+| Impl          | Contract implementation (incl. DB session init)  | Provide a service
+| Client        |                                                  | Consume the service
+| Feature       | Generate deployment description (DD)             | Launch the project within the OSGi-ecosystem Apache Karaf
+| ITest         | Validate integrity of deployment description     | Launch the application in different OSGi-Runtime implementations Equinox / Apache Felix
+
+## Model / OGM - Binding
+
+> The binding of the application model and Neo4j OGM in an OSGi environment gets 
+> negotiated using the fragment host declaration. 
+ 
+> The attribute fragment-host has to get defined in the model`s bundle configuration,
+> which generates the MANIFEST.MF file.
+
+
+``` Fragment Host: org.neo4j.ogm-core ```
+
+## Class scanning - Domain Objects
+
+The class DomainInfo, part of Neo4j-OGM's core module, is responsible for scanning domain objects.
+The configuration requires one or more package names in which domain objects get defined.
+
+In this demo only one package hosts domain objects; its org.neo4j.ogm.demo.osgi.model.
+
+## Supported OSGi-Runtimes
+
+### Equinox
+
+> Status - (Fully working)
+
+### Apache Felix
+
+> Status - (Not working)
+> Blocker - Fix classloading issue in Neo4j-OGM / module - Core / class - DomainInfo
+
 ## Build instructions
 
 ```
@@ -8,8 +48,7 @@ mvn -s settings.xml clean install
 
 ## Run instructions
 
-> Requirements: Apache Karaf.
-
+> Requirements: Apache Karaf
 
 Follow the installation and setup instructions provided on the Karaf's website.
 
@@ -86,46 +125,3 @@ repo-add file:${placeholder-replace-with-absolute-path-to-project}/neo4j-ogm-dem
 ```
 feature:install neo4j-ogm-demo-osgi-feature
 ```
-
-## Modules and purpose
-
-| Modules       | General purpose                                  | OSGi integration             |
-|:-------------:|-------------------------------------------------:|-----------------------------:|
-| Model         | Implements the data model                        | Fragment Host: org.neo4j.ogm-core
-| API           | Contract definition                              |
-| Impl          | Contract implementation (incl. DB session init)  | Provide a service
-| Client        |                                                  | Consume the service
-| Feature       | Generate deployment description (DD)             | Launch the project within the OSGi-ecosystem Apache Karaf
-| ITest         | Validate integrity of deployment description     | Launch the application in different OSGi-Runtime implementations Equinox / Apache Felix
-
-## Model / OGM - Binding
-
-> The binding of the application model and Neo4j OGM in an OSGi environment gets 
-> negotiated using the fragment host declaration. 
- 
-> The attribute fragment-host has to get defined in the model`s bundle configuration,
-> which generates the MANIFEST.MF file.
-
-
-``` Fragment Host: org.neo4j.ogm-core ```
-
-## Class scanning - Domain Objects
-
-The class DomainInfo, part of Neo4j-OGM's core module, is responsible for scanning domain objects.
-The configuration requires one or more package names in which domain objects get defined.
-
-In this demo only one package hosts domain objects; its org.neo4j.ogm.demo.osgi.model.
-
-## Supported OSGi-Runtimes
-
-### Equinox
-
-> Status - (Fully working)
-
-### Apache Felix
-
-> Status - (Not working)
-> Blocker - Fix classloading issue in Neo4j-OGM / module - Core / class - DomainInfo
-
-
-
