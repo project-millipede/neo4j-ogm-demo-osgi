@@ -68,7 +68,7 @@ repo-add mvn:org.neo4j/neo4j-ogm-demo-osgi-feature/1.0.0/xml/features
 3. Install the feature
 
 ```
-feature:install neo4j-feature
+feature:install neo4j-ogm-demo-osgi-feature
 ```
 
 ### Use local build project feature and artifacts
@@ -78,13 +78,13 @@ feature:install neo4j-feature
 2. Add the projects feature repository
 
 ```
-repo-add mvn:org.neo4j/neo4j-ogm-demo-osgi-feature/1.0.0/xml/features
+repo-add file:${placeholder-replace-with-absolute-path-to-project}/neo4j-ogm-demo-osgi/demo-feature/target/feature/feature.xml
 ```
 
 3. Install the feature
 
 ```
-feature:install neo4j-feature
+feature:install neo4j-ogm-demo-osgi-feature
 ```
 
 ## Modules and purpose
