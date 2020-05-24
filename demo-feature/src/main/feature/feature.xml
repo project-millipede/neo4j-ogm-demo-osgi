@@ -17,10 +17,11 @@
     limitations under the License.
 -->
 <features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
-
     <feature name='${project.artifactId}' description='${project.name}' version='${project.version}'>
         <details>${project.description}</details>
+        <configfile finalname="${karaf.etc}/ogm.session.component.config" override="true">
+            mvn:${project.groupId}/${project.artifactId}/${project.version}/config/session
+        </configfile>
         <feature>scr</feature>
     </feature>
-
 </features>

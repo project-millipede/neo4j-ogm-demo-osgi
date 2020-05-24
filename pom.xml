@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
@@ -25,6 +24,8 @@
         <neo4j-ogm.version>4.0.0-SNAPSHOT</neo4j-ogm.version>
 
         <maven-bundle-plugin.version>4.2.1</maven-bundle-plugin.version>
+        <build-helper-maven-plugin.version>3.1.0</build-helper-maven-plugin.version>
+
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
 
         <maven.compiler.source>11</maven.compiler.source>
@@ -57,6 +58,7 @@
         <module>demo-client</module>
         <module>demo-feature</module>
         <module>demo-itest</module>
+        <module>demo-commands</module>
     </modules>
 
     <dependencyManagement>
@@ -88,6 +90,11 @@
                 <artifactId>neo4j-ogm-bolt-driver</artifactId>
                 <version>${neo4j-ogm.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.neo4j</groupId>
+                <artifactId>neo4j-ogm-osgi</artifactId>
+                <version>${neo4j-ogm.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -99,6 +106,11 @@
                     <artifactId>maven-bundle-plugin</artifactId>
                     <version>${maven-bundle-plugin.version}</version>
                     <extensions>true</extensions>
+                </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>build-helper-maven-plugin</artifactId>
+                    <version>${build-helper-maven-plugin.version}</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
