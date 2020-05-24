@@ -9,19 +9,13 @@ import org.osgi.service.component.annotations.Reference;
 @Component
 public class TestClient {
 
-    @Reference
-    private ProductService service;
+  @Reference private ProductService service;
 
-    @Activate
-    public void start() {
-        Product productToCreate = new Product();
-        productToCreate.setProductName("Vanilla Ice");
-        productToCreate.setUnitsInStock(10);
-
-        service.createOrUpdate(productToCreate);
-
-        for (Product product : service.findAll()) {
-            System.out.println(product);
-        }
+  @Activate
+  public void start() {
+    System.out.println("Products in store at application start:");
+    for (Product product : service.findAll()) {
+      System.out.println(product);
     }
+  }
 }

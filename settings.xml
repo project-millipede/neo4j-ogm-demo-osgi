@@ -28,7 +28,7 @@
                 </snapshots.repo.url>
             </properties>
             <repositories>
-                <!-- Neo4j Java Driver - custom build dependency hosted at Gitlab maven registry -->
+                <!-- Neo4j Java Driver - custom dependency, hosted at Gitlab maven registry -->
                 <repository>
                     <id>gitlab-neo4j-java-driver</id>
                     <url>https://gitlab.com/api/v4/projects/18622687/packages/maven</url>
@@ -39,10 +39,30 @@
                         <enabled>true</enabled>
                     </snapshots>
                 </repository>
-                <!-- Neo4j OGM - custom build dependency hosted at Gitlab maven registry -->
+                <!-- Neo4j OGM - custom dependency, hosted at Gitlab maven registry -->
                 <repository>
                     <id>gitlab-neo4j-ogm</id>
                     <url>https://gitlab.com/api/v4/projects/18591736/packages/maven</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
+                <!--
+                Fragment bundle refresh - optional runtime dependency, hosted at Gitlab maven registry.
+
+                Restore the integrity of fragment bundles within Apache Karaf and Apache Felix as the selected
+                runtime option.
+
+                Note:
+                Fragment bundle refresh is relevant for Apache Felix exclusively.
+                Equinox handles bundle refreshes out of the box.
+                -->
+                <repository>
+                    <id>gitlab-osgi-helper</id>
+                    <url>https://gitlab.com/api/v4/projects/18953434/packages/maven</url>
                     <releases>
                         <enabled>true</enabled>
                     </releases>

@@ -72,7 +72,7 @@ Follow the installation and setup instructions provided on the Neo4j's website.
 2. Add a new local graph store
 
 ```
-Add Database => Create a local Graph => Set password test1234
+Add Database => Create a local Graph => Set password neo4jPWD
 ```
 
 3. Start the database created store
