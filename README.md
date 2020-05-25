@@ -7,7 +7,8 @@
 |  Model  |                       Implements the data model |                                                       Fragment Host: org.neo4j.ogm-core |
 |   API   |                             Contract definition |
 |  Impl   | Contract implementation (incl. DB session init) |                                                                       Provide a service |
-| Client  |                                                 |                                                                     Consume the service |
+| Client  |       Fetch existing data from store at startup |                                                                     Consume the service |
+| Command |                       CLI based CRUD operations |                                                                     Consume the service |
 | Feature |            Generate deployment description (DD) |                               Launch the project within the OSGi-ecosystem Apache Karaf |
 |  ITest  |    Validate integrity of deployment description | Launch the application in different OSGi-Runtime implementations Equinox / Apache Felix |
 
@@ -17,18 +18,21 @@
 > negotiated using the fragment host declaration.
 
 ```
-Fragment Host: org.neo4j.ogm-core
+Fragment Host: org.neo4j.ogm-osgi
 ```
 
-> The attribute fragment-host has to get defined in the model`s bundle configuration,
-> which generates the MANIFEST.MF file.
+> The attribute fragment-host has to get defined in the model`s bundle
+> configuration. A respective entry gets generates in the bundles MANIFEST.MF
+> file in the build phase.
 
 ## Class scanning - Domain Objects
 
-The class DomainInfo, part of Neo4j-OGM's core module, is responsible for scanning domain objects.
-The configuration requires one or more package names in which domain objects get defined.
+The class DomainInfo, part of Neo4j-OGM's core module, is responsible for
+scanning domain objects. The configuration requires one or more package names in
+which domain objects get defined.
 
-In this demo only one package hosts domain objects; its org.neo4j.ogm.demo.osgi.model.
+In this demo only one package hosts domain objects; its
+org.neo4j.ogm.demo.osgi.model.
 
 ## Supported OSGi-Runtimes
 
@@ -38,8 +42,12 @@ In this demo only one package hosts domain objects; its org.neo4j.ogm.demo.osgi.
 
 ### Apache Felix
 
-> Status - (Not working)
-> Blocker - Fix classloading issue in Neo4j-OGM / module - Core / class - DomainInfo
+> Status - (Fully working)
+
+> **_Note:_** Apache Felix works out of the box. Despite a minor issue with
+> fragment-bundles, more precise fragment-hosts will not get refreshed when you
+> start Apache Karaf for a second time, and bundles are in the cache, see the
+> build instruction for Apache Felix.
 
 ## Configuration instructions
 
@@ -47,19 +55,18 @@ In this demo only one package hosts domain objects; its org.neo4j.ogm.demo.osgi.
 
 ### Apache Karaf
 
-Follow the installation and setup instructions provided on the Karaf's website.
+Follow the installation and setup instructions provided on the Apache Karaf's
+website.
 
-> Important: The project is currently only compatible with the OSGi equinox runtime,
-> see section Supported OSGi-Runtimes
+> Apache Karaf's default OSGi runtime setting is Apache Felix. To switch Apache
+> Felix in favor for Equinox change the configuration as follows.
 
-The default settings of Apache Karaf is set to set Equinox as its runtime.
+1. Go to the /etc folder, located relative to your Apache Karaf installation
 
-1. Go to the /etc folder, located relative to your Karaf installation
-
-2. Modify file config.properties file and ensure the property karaf.framework is set to equinox
+2. Modify file config.properties file and set the value of property
+   karaf.framework set to equinox
 
 ```
-# karaf.framework=felix
 karaf.framework=equinox
 ```
 
@@ -79,8 +86,16 @@ Add Database => Create a local Graph => Set password neo4jPWD
 
 ## Build instructions
 
+### Equinox build
+
 ```
 mvn -s settings.xml clean install
+```
+
+### Apache Felix build
+
+```
+mvn -s settings.xml clean install -P felix
 ```
 
 ## Start instructions
@@ -89,15 +104,16 @@ To get all project artifacts necessary, two options are available.
 
 ### Use deployed project feature and artifacts directly
 
-1. Configure Apache Karaf to use remote maven repositories which host the build artifacts
+1. Configure Apache Karaf to use remote maven repositories which host the build
+   artifacts
 
-1.1 Install Karaf's maven feature
+1.1 Install Apache Karaf's maven feature
 
 ```
 feature:install maven
 ```
 
-1.2 Add relevant maven repositories to Karaf's settings
+1.2 Add relevant maven repositories to Apache Karaf's settings
 
 **_Neo4j-Java-Driver - (OSGi compatible runtime dependencies)_**
 
@@ -111,10 +127,17 @@ maven:repository-add -idx 0 -id neo4j-java-driver.repository --snapshots https:/
 maven:repository-add -idx 1 -id neo4j-ogm.repository --snapshots https://gitlab.com/api/v4/projects/18591736/packages/maven
 ```
 
+**_Fragment Bundle Refresh - (OSGi runtime dependency, optional - Relevant only
+for Apache Felix relevant)_**
+
+```
+maven:repository-add -idx 2 -id osgi-helper.repository --snapshots https://gitlab.com/api/v4/projects/18953434/packages/maven
+```
+
 **_Neo4j-OGM-Demo_**
 
 ```
-maven:repository-add -idx 2 -id neo4j-ogm.demo.repository --snapshots https://gitlab.com/api/v4/projects/18785831/packages/maven
+maven:repository-add -idx 3 -id neo4j-ogm.demo.repository --snapshots https://gitlab.com/api/v4/projects/18785831/packages/maven
 ```
 
 2. Add the projects feature repository
@@ -144,3 +167,67 @@ repo-add file:${placeholder-replace-with-absolute-path-to-project}/neo4j-ogm-dem
 ```
 feature:install neo4j-ogm-demo-osgi-feature
 ```
+
+## Application configuration
+
+Session configuration gets handled in an OSGi agnostic manner, meaning the OSGi
+configuration methodology gets used to serve configuration to the application.
+
+### Customize configuration settings
+
+To adjust the configuration, edit the session.config file located in the
+resource folder of module demo-feature. Making the adjustments effective
+requires a rebuild of the application, see build instructions.
+
+### Driver configuration
+
+The application uses the operation variant "bolt"; only the respective
+configuration options are described.
+
+```
+username="neo4j"
+password="neo4jPWD"
+uri="bolt://localhost:7687"
+```
+
+### Domain object model configuration
+
+```
+domain.packages=[ \
+ "org.neo4j.ogm.demo.osgi.model", \
+ "org.neo4j.ogm.demo.osgi.model.second", \
+]
+```
+
+### Limitations
+
+The Neo4j-OGM provides much more configuration options than those mentioned
+here. Only the options mentioned in the example above for driver and domain
+object model are supported, yet.
+
+#### Why this limitation?
+
+As mentioned in the configuration, the OSGi configuration methodology gets used
+to delegate configuration to the Neo4j OGM SessionFactory. The delegation
+approach followed introduces repetitive variable declarations for configuration
+options see
+[module neo4j-ogm-osgi OGMSessionConfig](https://github.com/project-millipede/neo4j-ogm-osgi/blob/master/neo4j-ogm-osgi/src/main/java/org/neo4j/ogm/osgi/OGMSessionConfig.java)
+
+> More information about supported configuration methods and the respective
+> options can be found in the
+> [configuration wiki entry](https://github.com/project-millipede/neo4j-ogm-demo-osgi/wiki/Session-configuration).
+
+## Play with the demo
+
+> After installing the feature **_neo4j-ogm-demo-osgi-feature_**, the
+> application starts; the client prints existing objects in the data store
+> persisted from a previous session.
+
+### Available Commands
+
+**_The demo application provides several CLI commands to execute CRUD operations
+against the data-store._**
+
+More information about available commands and the respective options can be
+found in the
+[commands wiki entry](https://github.com/project-millipede/neo4j-ogm-demo-osgi/wiki/Commands).
