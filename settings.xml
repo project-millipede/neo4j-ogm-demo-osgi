@@ -14,6 +14,16 @@
                 </httpHeaders>
             </configuration>
         </server>
+        <server>
+            <id>${REGISTRY_PUSH_URL}</id> <!--registry.gitlab.com-->
+            <username>${env.REGISTRY_PUSH_USERNAME}</username>
+            <password>${env.REGISTRY_PUSH_PASSWORD}</password>
+        </server>
+        <server>
+            <id>${REGISTRY_PULL_URL}</id> <!--docker.io-->
+            <username>${env.REGISTRY_PULL_USERNAME}</username>
+            <password>${env.REGISTRY_PULL_PASSWORD}</password>
+        </server>
     </servers>
 
     <profiles>

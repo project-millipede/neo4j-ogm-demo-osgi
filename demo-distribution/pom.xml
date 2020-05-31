@@ -20,26 +20,14 @@
     <properties>
         <karaf.version>4.3.0.RC1</karaf.version>
         <docker-maven-plugin.version>0.33.0</docker-maven-plugin.version>
-        <release-docker-registry-url>registry.gitlab.com</release-docker-registry-url>
-        <release-docker-registry-project-path>m_gri/neo4j-ogm-demo-osgi</release-docker-registry-project-path>
 
-        <!-- Docker Settings :: Push -->
+        <!-- Docker Settings -->
         <!--suppress UnresolvedMavenProperty -->
-        <docker-registry-push-url>${env.CI_REGISTRY}</docker-registry-push-url>
+        <registry-push-url>${env.REGISTRY_PUSH_URL}</registry-push-url>
         <!--suppress UnresolvedMavenProperty -->
-        <docker-registry-push-username>${env.CI_REGISTRY_USERNAME}</docker-registry-push-username>
+        <registry-push-project-path>${env.REGISTRY_PUSH_PROJECT_PATH}</registry-push-project-path>
         <!--suppress UnresolvedMavenProperty -->
-        <docker-registry-push-password>${env.CI_REGISTRY_PASSWORD}</docker-registry-push-password>
-        <!--suppress UnresolvedMavenProperty -->
-        <docker-image>${env.DOCKER_IMAGE}</docker-image>
-
-        <!-- Docker Settings :: Pull -->
-        <!--suppress UnresolvedMavenProperty -->
-        <docker-registry-pull-url>${env.REGISTRY_PULL_URL}</docker-registry-pull-url>
-        <!--suppress UnresolvedMavenProperty -->
-        <docker-registry-pull-username>${env.REGISTRY_PULL_USERNAME}</docker-registry-pull-username>
-        <!--suppress UnresolvedMavenProperty -->
-        <docker-registry-pull-password>${env.REGISTRY_PULL_PASSWORD}</docker-registry-pull-password>
+        <registry-pull-url>${env.REGISTRY_PULL_URL}</registry-pull-url>
     </properties>
 
     <dependencies>
@@ -112,22 +100,19 @@
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <configuration>
-                    <pullRegistry>${docker-registry-pull-url}</pullRegistry>
-                    <pushRegistry>${docker-registry-push-url}</pushRegistry>
-                    <authConfig>
-                        <pull>
-                            <username>${docker-registry-pull-username}</username>
-                            <password>${docker-registry-pull-password}</password>
-                        </pull>
-                        <push>
-                            <username>${docker-registry-push-username}</username>
-                            <password>${docker-registry-push-password}</password>
-                        </push>
-                    </authConfig>
+                    <!--
+                    Configuration detail for authentication is not defined here;
+                    instead, configuration detail gets tied to the maven process, referencing a settings.xml variant.
+                    The variables for both push and pull- registry correspond to server ids in settings.xml.
+                    The purpose of this separation is to serve configuration detail for authentication
+                    in an independent manner, e.g., local or CI.
+                    -->
+                    <pushRegistry>${registry-push-url}</pushRegistry>
+                    <pullRegistry>${registry-pull-url}</pullRegistry>
                     <images>
                         <image>
                             <name>
-                                ${docker-image}:${project.version}
+                                ${registry-push-url}/${registry-push-project-path}:${project.version}
                             </name>
                             <build>
                                 <dockerFileDir>.</dockerFileDir>
