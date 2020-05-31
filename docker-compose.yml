@@ -2,7 +2,7 @@ version: "3.8"
 
 services:
   demo:
-    image: registry.gitlab.com/m_gri/neo4j-ogm-demo-osgi/neo4j-ogm-demo-osgi-distribution:1.0.0
+    image: registry.gitlab.com/m_gri/neo4j-ogm-demo-osgi:1.0.0
     container_name: neo4j-ogm-demo-osgi
     environment:
       - DB_URI=bolt://db:7687

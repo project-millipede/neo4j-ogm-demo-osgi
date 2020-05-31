@@ -22,6 +22,24 @@
         <docker-maven-plugin.version>0.33.0</docker-maven-plugin.version>
         <release-docker-registry-url>registry.gitlab.com</release-docker-registry-url>
         <release-docker-registry-project-path>m_gri/neo4j-ogm-demo-osgi</release-docker-registry-project-path>
+
+        <!-- docker settings -->
+        <!--suppress UnresolvedMavenProperty -->
+        <docker-registry-pull-url>${env.REGISTRY_PULL_URL}</docker-registry-pull-url>
+        <!--suppress UnresolvedMavenProperty -->
+        <docker-registry-pull-username>${env.REGISTRY_PULL_USER}</docker-registry-pull-username>
+        <!--suppress UnresolvedMavenProperty -->
+        <docker-registry-pull-password>${env.REGISTRY_PULL_PASSWORD}</docker-registry-pull-password>
+
+        <!--suppress UnresolvedMavenProperty -->
+        <docker-registry-push-url>${env.CI_REGISTRY}</docker-registry-push-url>
+        <!--suppress UnresolvedMavenProperty -->
+        <docker-registry-push-username>${env.CI_REGISTRY_USER}</docker-registry-push-username>
+        <!--suppress UnresolvedMavenProperty -->
+        <docker-registry-push-password>${env.CI_REGISTRY_PASSWORD}</docker-registry-push-password>
+
+        <!--suppress UnresolvedMavenProperty -->
+        <docker-image>${env.DOCKER_IMAGE}</docker-image>
     </properties>
 
     <dependencies>
@@ -94,12 +112,22 @@
                 <groupId>io.fabric8</groupId>
                 <artifactId>docker-maven-plugin</artifactId>
                 <configuration>
-                    <pushRegistry>${release-docker-registry-url}</pushRegistry>
+                    <pullRegistry>${docker-registry-pull-url}</pullRegistry>
+                    <pushRegistry>${docker-registry-push-url}</pushRegistry>
+                    <authConfig>
+                        <pull>
+                            <username>${docker-registry-pull-username}</username>
+                            <password>${docker-registry-pull-password}</password>
+                        </pull>
+                        <push>
+                            <username>${docker-registry-push-username}</username>
+                            <password>${docker-registry-push-password}</password>
+                        </push>
+                    </authConfig>
                     <images>
                         <image>
-                            <alias>${project.artifactId}</alias>
                             <name>
-                                ${release-docker-registry-url}/${release-docker-registry-project-path}/${project.artifactId}:${project.version}
+                                ${docker-image}:${project.version}
                             </name>
                             <build>
                                 <dockerFileDir>.</dockerFileDir>
