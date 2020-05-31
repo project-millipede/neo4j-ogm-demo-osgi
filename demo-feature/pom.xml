@@ -9,12 +9,11 @@
         <groupId>org.neo4j</groupId>
         <artifactId>neo4j-ogm-demo-osgi</artifactId>
         <version>1.0.0</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>neo4j-ogm-demo-osgi-feature</artifactId>
 
-    <name>Neo4j OGM Demo OSGi Feature</name>
+    <name>Neo4J :: OGM :: Demo :: OSGI :: Feature</name>
 
     <packaging>feature</packaging>
 
@@ -32,7 +31,13 @@
             <type>xml</type>
             <classifier>features</classifier>
         </dependency>
-
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-api-feature</artifactId>
+            <version>${neo4j-ogm.version}</version>
+            <type>xml</type>
+            <classifier>features</classifier>
+        </dependency>
         <dependency>
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j-ogm-core-feature</artifactId>
@@ -40,7 +45,6 @@
             <type>xml</type>
             <classifier>features</classifier>
         </dependency>
-
         <dependency>
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j-ogm-osgi-feature</artifactId>
@@ -53,12 +57,6 @@
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j-ogm-demo-osgi-model</artifactId>
             <version>${project.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.neo4j</groupId>
-                    <artifactId>neo4j-ogm-core</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.neo4j</groupId>
@@ -69,20 +67,6 @@
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j-ogm-demo-osgi-impl</artifactId>
             <version>${project.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.neo4j</groupId>
-                    <artifactId>neo4j-ogm-api</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.neo4j</groupId>
-                    <artifactId>neo4j-ogm-core</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.neo4j</groupId>
-                    <artifactId>neo4j-ogm-osgi</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.neo4j</groupId>
@@ -161,13 +145,14 @@
                 <artifactId>karaf-maven-plugin</artifactId>
                 <configuration>
                     <startLevel>80</startLevel>
-                    <aggregateFeatures>true</aggregateFeatures>
+                    <aggregateFeatures>false</aggregateFeatures>
                     <enableGeneration>true</enableGeneration>
+                    <includeProjectArtifact>false</includeProjectArtifact>
                 </configuration>
                 <executions>
                     <execution>
-                        <id>verify</id>
-                        <phase>process-resources</phase>
+                        <id>compile</id>
+                        <phase>compile</phase>
                         <goals>
                             <goal>features-generate-descriptor</goal>
                         </goals>

@@ -9,12 +9,11 @@
         <groupId>org.neo4j</groupId>
         <artifactId>neo4j-ogm-demo-osgi</artifactId>
         <version>1.0.0</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>neo4j-ogm-demo-osgi-impl</artifactId>
 
-    <name>Neo4j OGM Demo OSGi Impl</name>
+    <name>Neo4J :: OGM :: Demo :: OSGI :: Impl</name>
 
     <packaging>bundle</packaging>
 
@@ -27,14 +26,16 @@
             <groupId>org.osgi</groupId>
             <artifactId>osgi.cmpn</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.neo4j</groupId>
-            <artifactId>neo4j-ogm-api</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j-ogm-core</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-osgi</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j-ogm-demo-osgi-model</artifactId>
@@ -56,10 +57,6 @@
                     <artifactId>neo4j-ogm-demo-osgi-model</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.neo4j</groupId>
-            <artifactId>neo4j-ogm-osgi</artifactId>
         </dependency>
     </dependencies>
 

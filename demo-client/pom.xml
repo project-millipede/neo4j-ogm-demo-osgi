@@ -9,12 +9,11 @@
         <groupId>org.neo4j</groupId>
         <artifactId>neo4j-ogm-demo-osgi</artifactId>
         <version>1.0.0</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>neo4j-ogm-demo-osgi-client</artifactId>
 
-    <name>Neo4j OGM Demo OSGi Client</name>
+    <name>Neo4J :: OGM :: Demo :: OSGI :: Client</name>
 
     <packaging>bundle</packaging>
 

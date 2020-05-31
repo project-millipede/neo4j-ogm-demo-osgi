@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.neo4j</groupId>
@@ -9,7 +11,7 @@
 
     <packaging>pom</packaging>
 
-    <name>Neo4j OGM OSGi Demo</name>
+    <name>Neo4J :: OGM :: Demo :: OSGI</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -37,7 +39,6 @@
         <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
         <!-- Override version for maven-deploy-plugin due to a bug similar to the maven-install-plugin -->
         <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
-
     </properties>
 
     <distributionManagement>
@@ -56,10 +57,13 @@
         <module>demo-model</module>
         <module>demo-impl</module>
         <module>demo-client</module>
-        <module>demo-feature</module>
-        <module>demo-itest</module>
         <module>demo-commands</module>
-    </modules>
+        <module>demo-feature</module>
+        <module>demo-distribution</module>
+        <!--
+        <module>demo-itest</module>
+        -->
+  </modules>
 
     <dependencyManagement>
         <dependencies>
@@ -108,6 +112,22 @@
                     <extensions>true</extensions>
                 </plugin>
                 <plugin>
+                    <groupId>org.apache.karaf.tooling</groupId>
+                    <artifactId>karaf-maven-plugin</artifactId>
+                    <configuration>
+                        <includeProjectArtifact>true</includeProjectArtifact>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <id>verify</id>
+                            <phase>process-resources</phase>
+                            <goals>
+                                <goal>features-generate-descriptor</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
                     <version>${build-helper-maven-plugin.version}</version>
@@ -124,6 +144,10 @@
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.karaf.tooling</groupId>
+                <artifactId>karaf-maven-plugin</artifactId>
             </plugin>
         </plugins>
 

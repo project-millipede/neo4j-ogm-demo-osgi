@@ -9,12 +9,11 @@
         <groupId>org.neo4j</groupId>
         <artifactId>neo4j-ogm-demo-osgi</artifactId>
         <version>1.0.0</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>neo4j-ogm-demo-osgi-itest</artifactId>
 
-    <name>Neo4j OGM Demo OSGi ITest</name>
+    <name>Neo4J :: OGM :: Demo :: OSGI :: Integration Test</name>
 
     <properties>
         <karaf.version>4.3.0.RC1</karaf.version>

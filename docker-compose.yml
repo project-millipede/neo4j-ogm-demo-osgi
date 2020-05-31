@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  demo:
+    image: registry.gitlab.com/m_gri/neo4j-ogm-demo-osgi/neo4j-ogm-demo-osgi-distribution:1.0.0
+    container_name: neo4j-ogm-demo-osgi
+    environment:
+      - DB_URI=bolt://db:7687
+      - DB_USERNAME=neo4j
+      - DB_PASSWORD=neo4jPWD
+    networks:
+      - neo4j-ogm-demo-osgi-network
+    depends_on:
+      - db
+    command: ["./wait-for-it.sh", "http://db:7474", "--", "karaf", "run"]
+
+  db:
+    image: neo4j:latest
+    container_name: neo4j
+    volumes:
+      - $HOME/neo4j/data:/data
+      - $HOME/neo4j/logs:/logs
+      - $HOME/neo4j/import:/var/lib/neo4j/import
+      - $HOME/neo4j/plugins:/plugins
+    environment:
+      NEO4J_AUTH: neo4j/neo4jPWD
+    ports:
+      - 7474:7474 # Http protocol - Used by Neo4j Browser, REST API (Development)
+      # 7473:7473 # Https protocol - Used by Neo4j Browser, REST API (Production)
+      - 7687:7687 # Bolt protocol - Used by Neo4j Browser, Cypher Shell
+    networks:
+      - neo4j-ogm-demo-osgi-network
+
+networks:
+  neo4j-ogm-demo-osgi-network:
