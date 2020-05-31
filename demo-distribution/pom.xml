@@ -23,23 +23,23 @@
         <release-docker-registry-url>registry.gitlab.com</release-docker-registry-url>
         <release-docker-registry-project-path>m_gri/neo4j-ogm-demo-osgi</release-docker-registry-project-path>
 
-        <!-- docker settings -->
-        <!--suppress UnresolvedMavenProperty -->
-        <docker-registry-pull-url>${env.REGISTRY_PULL_URL}</docker-registry-pull-url>
-        <!--suppress UnresolvedMavenProperty -->
-        <docker-registry-pull-username>${env.REGISTRY_PULL_USER}</docker-registry-pull-username>
-        <!--suppress UnresolvedMavenProperty -->
-        <docker-registry-pull-password>${env.REGISTRY_PULL_PASSWORD}</docker-registry-pull-password>
-
+        <!-- Docker Settings :: Push -->
         <!--suppress UnresolvedMavenProperty -->
         <docker-registry-push-url>${env.CI_REGISTRY}</docker-registry-push-url>
         <!--suppress UnresolvedMavenProperty -->
-        <docker-registry-push-username>${env.CI_REGISTRY_USER}</docker-registry-push-username>
+        <docker-registry-push-username>${env.CI_REGISTRY_USERNAME}</docker-registry-push-username>
         <!--suppress UnresolvedMavenProperty -->
         <docker-registry-push-password>${env.CI_REGISTRY_PASSWORD}</docker-registry-push-password>
-
         <!--suppress UnresolvedMavenProperty -->
         <docker-image>${env.DOCKER_IMAGE}</docker-image>
+
+        <!-- Docker Settings :: Pull -->
+        <!--suppress UnresolvedMavenProperty -->
+        <docker-registry-pull-url>${env.REGISTRY_PULL_URL}</docker-registry-pull-url>
+        <!--suppress UnresolvedMavenProperty -->
+        <docker-registry-pull-username>${env.REGISTRY_PULL_USERNAME}</docker-registry-pull-username>
+        <!--suppress UnresolvedMavenProperty -->
+        <docker-registry-pull-password>${env.REGISTRY_PULL_PASSWORD}</docker-registry-pull-password>
     </properties>
 
     <dependencies>
