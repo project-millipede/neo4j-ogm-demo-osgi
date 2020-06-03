@@ -24,9 +24,7 @@
             mvn:${project.groupId}/${project.artifactId}/${project.version}/config/session
         </configfile>
 
-        <!--
         <feature>scr</feature>
-        -->
 
     </feature>
 </features>

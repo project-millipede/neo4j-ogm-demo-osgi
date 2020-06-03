@@ -1,0 +1,786 @@
+[
+{
+  "name":"aQute.launcher.Launcher"
+},
+{
+  "name":"aQute.launcher.pre.EmbeddedLauncher$Loader",
+  "methods":[{"name":"addURL","parameterTypes":["java.net.URL"] }]
+},
+{
+  "name":"java.io.ByteArrayInputStream"
+},
+{
+  "name":"java.io.ByteArrayOutputStream"
+},
+{
+  "name":"java.io.EOFException"
+},
+{
+  "name":"java.io.File"
+},
+{
+  "name":"java.io.FileDescriptor"
+},
+{
+  "name":"java.io.FileFilter"
+},
+{
+  "name":"java.io.FileInputStream"
+},
+{
+  "name":"java.io.FileOutputStream"
+},
+{
+  "name":"java.io.FileWriter"
+},
+{
+  "name":"java.io.IOException"
+},
+{
+  "name":"java.io.InputStream"
+},
+{
+  "name":"java.io.InputStreamReader"
+},
+{
+  "name":"java.io.OutputStream"
+},
+{
+  "name":"java.io.PipedInputStream"
+},
+{
+  "name":"java.io.PipedOutputStream"
+},
+{
+  "name":"java.io.PrintStream"
+},
+{
+  "name":"java.io.Reader"
+},
+{
+  "name":"java.io.StringWriter"
+},
+{
+  "name":"java.io.Writer"
+},
+{
+  "name":"java.lang.Appendable"
+},
+{
+  "name":"java.lang.AssertionError"
+},
+{
+  "name":"java.lang.AutoCloseable"
+},
+{
+  "name":"java.lang.Boolean"
+},
+{
+  "name":"java.lang.CharSequence"
+},
+{
+  "name":"java.lang.Character"
+},
+{
+  "name":"java.lang.Class"
+},
+{
+  "name":"java.lang.ClassCastException"
+},
+{
+  "name":"java.lang.ClassLoader",
+  "methods":[{"name":"getPlatformClassLoader","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.ClassNotFoundException"
+},
+{
+  "name":"java.lang.Comparable"
+},
+{
+  "name":"java.lang.Double"
+},
+{
+  "name":"java.lang.Enum"
+},
+{
+  "name":"java.lang.Exception"
+},
+{
+  "name":"java.lang.IllegalAccessException"
+},
+{
+  "name":"java.lang.IllegalArgumentException"
+},
+{
+  "name":"java.lang.IllegalStateException"
+},
+{
+  "name":"java.lang.InheritableThreadLocal"
+},
+{
+  "name":"java.lang.InstantiationException"
+},
+{
+  "name":"java.lang.Integer"
+},
+{
+  "name":"java.lang.InterruptedException"
+},
+{
+  "name":"java.lang.Long"
+},
+{
+  "name":"java.lang.Math"
+},
+{
+  "name":"java.lang.Module",
+  "methods":[{"name":"getDescriptor","parameterTypes":[] }]
+},
+{
+  "name":"java.lang.ModuleLayer",
+  "methods":[
+    {"name":"boot","parameterTypes":[] }, 
+    {"name":"modules","parameterTypes":[] }
+  ]
+},
+{
+  "name":"java.lang.NoClassDefFoundError"
+},
+{
+  "name":"java.lang.NoSuchFieldError"
+},
+{
+  "name":"java.lang.NoSuchMethodException"
+},
+{
+  "name":"java.lang.NullPointerException"
+},
+{
+  "name":"java.lang.NumberFormatException"
+},
+{
+  "name":"java.lang.Object"
+},
+{
+  "name":"java.lang.Runnable"
+},
+{
+  "name":"java.lang.Runtime"
+},
+{
+  "name":"java.lang.RuntimeException"
+},
+{
+  "name":"java.lang.SecurityException"
+},
+{
+  "name":"java.lang.String"
+},
+{
+  "name":"java.lang.StringBuilder"
+},
+{
+  "name":"java.lang.String[]"
+},
+{
+  "name":"java.lang.System",
+  "allPublicMethods":true
+},
+{
+  "name":"java.lang.Thread"
+},
+{
+  "name":"java.lang.ThreadLocal"
+},
+{
+  "name":"java.lang.Throwable"
+},
+{
+  "name":"java.lang.Void"
+},
+{
+  "name":"java.lang.invoke.LambdaMetafactory"
+},
+{
+  "name":"java.lang.invoke.StringConcatFactory"
+},
+{
+  "name":"java.lang.module.ModuleDescriptor",
+  "methods":[
+    {"name":"exports","parameterTypes":[] }, 
+    {"name":"isAutomatic","parameterTypes":[] }, 
+    {"name":"packages","parameterTypes":[] }
+  ]
+},
+{
+  "name":"java.lang.module.ModuleDescriptor$Exports",
+  "methods":[
+    {"name":"isQualified","parameterTypes":[] }, 
+    {"name":"source","parameterTypes":[] }
+  ]
+},
+{
+  "name":"java.lang.ref.SoftReference"
+},
+{
+  "name":"java.lang.reflect.Array"
+},
+{
+  "name":"java.lang.reflect.Constructor"
+},
+{
+  "name":"java.lang.reflect.InvocationHandler"
+},
+{
+  "name":"java.lang.reflect.InvocationTargetException"
+},
+{
+  "name":"java.lang.reflect.Method"
+},
+{
+  "name":"java.lang.reflect.Modifier"
+},
+{
+  "name":"java.lang.reflect.Proxy"
+},
+{
+  "name":"java.net.HttpURLConnection"
+},
+{
+  "name":"java.net.MalformedURLException"
+},
+{
+  "name":"java.net.SetAccessible/0x00000008400a7840",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"java.net.URI",
+  "allPublicMethods":true,
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.String"] }]
+},
+{
+  "name":"java.net.URL",
+  "allDeclaredFields":true
+},
+{
+  "name":"java.net.URLConnection",
+  "allDeclaredFields":true
+},
+{
+  "name":"java.nio.ByteBuffer"
+},
+{
+  "name":"java.nio.CharBuffer"
+},
+{
+  "name":"java.nio.channels.ByteChannel"
+},
+{
+  "name":"java.nio.channels.Channel"
+},
+{
+  "name":"java.nio.channels.Channels"
+},
+{
+  "name":"java.nio.channels.ClosedChannelException"
+},
+{
+  "name":"java.nio.channels.ReadableByteChannel"
+},
+{
+  "name":"java.nio.channels.WritableByteChannel"
+},
+{
+  "name":"java.nio.channels.spi.AbstractInterruptibleChannel"
+},
+{
+  "name":"java.nio.file.FileVisitOption"
+},
+{
+  "name":"java.nio.file.FileVisitor"
+},
+{
+  "name":"java.nio.file.Path"
+},
+{
+  "name":"java.nio.file.Paths"
+},
+{
+  "name":"java.security.AccessController"
+},
+{
+  "name":"java.security.PrivilegedAction"
+},
+{
+  "name":"java.text.CharacterIterator"
+},
+{
+  "name":"java.util.AbstractList"
+},
+{
+  "name":"java.util.ArrayList"
+},
+{
+  "name":"java.util.Arrays"
+},
+{
+  "name":"java.util.Collection"
+},
+{
+  "name":"java.util.Collections"
+},
+{
+  "name":"java.util.Comparator"
+},
+{
+  "name":"java.util.Dictionary"
+},
+{
+  "name":"java.util.Enumeration"
+},
+{
+  "name":"java.util.Formatter"
+},
+{
+  "name":"java.util.HashMap"
+},
+{
+  "name":"java.util.HashSet"
+},
+{
+  "name":"java.util.Hashtable"
+},
+{
+  "name":"java.util.Iterator"
+},
+{
+  "name":"java.util.LinkedHashMap"
+},
+{
+  "name":"java.util.LinkedList"
+},
+{
+  "name":"java.util.List"
+},
+{
+  "name":"java.util.Locale"
+},
+{
+  "name":"java.util.Map"
+},
+{
+  "name":"java.util.Map$Entry"
+},
+{
+  "name":"java.util.Objects"
+},
+{
+  "name":"java.util.Set"
+},
+{
+  "name":"java.util.SortedMap"
+},
+{
+  "name":"java.util.StringTokenizer"
+},
+{
+  "name":"java.util.Timer"
+},
+{
+  "name":"java.util.TimerTask"
+},
+{
+  "name":"java.util.TreeMap"
+},
+{
+  "name":"java.util.TreeSet"
+},
+{
+  "name":"java.util.WeakHashMap"
+},
+{
+  "name":"java.util.concurrent.Callable"
+},
+{
+  "name":"java.util.concurrent.ConcurrentHashMap"
+},
+{
+  "name":"java.util.concurrent.ConcurrentLinkedQueue"
+},
+{
+  "name":"java.util.concurrent.ConcurrentMap"
+},
+{
+  "name":"java.util.concurrent.CopyOnWriteArraySet"
+},
+{
+  "name":"java.util.concurrent.CountDownLatch"
+},
+{
+  "name":"java.util.concurrent.ExecutionException"
+},
+{
+  "name":"java.util.concurrent.Executor"
+},
+{
+  "name":"java.util.concurrent.ExecutorService"
+},
+{
+  "name":"java.util.concurrent.Executors"
+},
+{
+  "name":"java.util.concurrent.Future"
+},
+{
+  "name":"java.util.concurrent.FutureTask"
+},
+{
+  "name":"java.util.concurrent.RejectedExecutionException"
+},
+{
+  "name":"java.util.concurrent.ThreadFactory"
+},
+{
+  "name":"java.util.concurrent.TimeUnit"
+},
+{
+  "name":"java.util.concurrent.atomic.AtomicBoolean"
+},
+{
+  "name":"java.util.concurrent.atomic.AtomicInteger"
+},
+{
+  "name":"java.util.concurrent.atomic.AtomicLong"
+},
+{
+  "name":"java.util.concurrent.atomic.AtomicReference"
+},
+{
+  "name":"java.util.concurrent.locks.Condition"
+},
+{
+  "name":"java.util.concurrent.locks.Lock"
+},
+{
+  "name":"java.util.concurrent.locks.ReentrantLock"
+},
+{
+  "name":"java.util.concurrent.locks.ReentrantReadWriteLock"
+},
+{
+  "name":"java.util.concurrent.locks.ReentrantReadWriteLock$ReadLock"
+},
+{
+  "name":"java.util.function.BiFunction"
+},
+{
+  "name":"java.util.function.Function"
+},
+{
+  "name":"java.util.logging.Logger"
+},
+{
+  "name":"java.util.regex.Matcher"
+},
+{
+  "name":"java.util.regex.Pattern"
+},
+{
+  "name":"java.util.regex.PatternSyntaxException"
+},
+{
+  "name":"javax.xml.parsers.SAXParser"
+},
+{
+  "name":"javax.xml.parsers.SAXParserFactory"
+},
+{
+  "name":"jdk.internal.reflect.ConstructorAccessorImpl"
+},
+{
+  "name":"net.jbw.playground.greeting.api.GreetingService"
+},
+{
+  "name":"net.jbw.playground.greeting.client.command.GreetingCommand",
+  "allDeclaredMethods":true
+},
+{
+  "name":"net.jbw.playground.greeting.client.command.GreetingCommandEnglish",
+  "allDeclaredMethods":true,
+  "allPublicMethods":true,
+  "allPublicConstructors":true
+},
+{
+  "name":"net.jbw.playground.greeting.client.command.GreetingCommandGerman",
+  "allDeclaredMethods":true,
+  "allPublicMethods":true,
+  "allPublicConstructors":true
+},
+{
+  "name":"net.jbw.playground.greeting.client.command.GreetingCommandsHelp",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"net.jbw.playground.greeting.impl.GreetingImpl",
+  "allDeclaredMethods":true
+},
+{
+  "name":"net.jbw.playground.greeting.impl.GreetingImplEnglish",
+  "allDeclaredMethods":true,
+  "allPublicConstructors":true
+},
+{
+  "name":"net.jbw.playground.greeting.impl.GreetingImplGerman",
+  "allDeclaredMethods":true,
+  "allPublicConstructors":true
+},
+{
+  "name":"org.apache.felix.gogo.command.Activator",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"org.apache.felix.gogo.command.Basic",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.felix.gogo.command.Files",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.felix.gogo.command.Inspect",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.felix.gogo.runtime.CommandProcessorImpl",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.felix.gogo.runtime.activator.Activator",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"org.apache.felix.gogo.shell.Activator",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"org.apache.felix.gogo.shell.Builtin",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.felix.gogo.shell.Posix",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.felix.gogo.shell.Procedural",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.felix.gogo.shell.Shell",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.felix.gogo.shell.Telnet",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.felix.scr.impl.Activator",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"org.apache.felix.scr.impl.ComponentCommands",
+  "allPublicMethods":true
+},
+{
+  "name":"org.apache.felix.service.command.CommandProcessor"
+},
+{
+  "name":"org.apache.felix.service.command.CommandSession",
+  "allDeclaredMethods":true
+},
+{
+  "name":"org.apache.felix.service.command.Converter"
+},
+{
+  "name":"org.apache.felix.service.command.Function[]"
+},
+{
+  "name":"org.apache.felix.service.threadio.ThreadIO"
+},
+{
+  "name":"org.eclipse.equinox.log.ExtendedLogService"
+},
+{
+  "name":"org.eclipse.osgi.framework.log.FrameworkLog"
+},
+{
+  "name":"org.eclipse.osgi.internal.cds.CDSHookConfigurator",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"org.eclipse.osgi.internal.connect.ConnectHookConfigurator",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"org.eclipse.osgi.internal.framework.BundleContextImpl",
+  "allPublicMethods":true
+},
+{
+  "name":"org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle",
+  "allPublicMethods":true
+},
+{
+  "name":"org.eclipse.osgi.internal.framework.SystemBundleActivator",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"org.eclipse.osgi.internal.signedcontent.SignedBundleHook",
+  "methods":[{"name":"<init>","parameterTypes":[] }]
+},
+{
+  "name":"org.eclipse.osgi.service.datalocation.Location"
+},
+{
+  "name":"org.eclipse.osgi.service.debug.DebugOptions"
+},
+{
+  "name":"org.eclipse.osgi.service.debug.DebugOptionsListener"
+},
+{
+  "name":"org.eclipse.osgi.service.environment.EnvironmentInfo"
+},
+{
+  "name":"org.eclipse.osgi.service.localization.BundleLocalization"
+},
+{
+  "name":"org.eclipse.osgi.service.security.TrustEngine"
+},
+{
+  "name":"org.eclipse.osgi.service.urlconversion.URLConverter"
+},
+{
+  "name":"org.eclipse.osgi.signedcontent.SignedContentFactory"
+},
+{
+  "name":"org.osgi.dto.DTO"
+},
+{
+  "name":"org.osgi.framework.Bundle"
+},
+{
+  "name":"org.osgi.framework.BundleActivator"
+},
+{
+  "name":"org.osgi.framework.BundleContext"
+},
+{
+  "name":"org.osgi.framework.BundleEvent"
+},
+{
+  "name":"org.osgi.framework.BundleException"
+},
+{
+  "name":"org.osgi.framework.Filter"
+},
+{
+  "name":"org.osgi.framework.InvalidSyntaxException"
+},
+{
+  "name":"org.osgi.framework.ServiceEvent"
+},
+{
+  "name":"org.osgi.framework.ServiceException"
+},
+{
+  "name":"org.osgi.framework.ServiceFactory"
+},
+{
+  "name":"org.osgi.framework.ServiceListener"
+},
+{
+  "name":"org.osgi.framework.ServiceReference"
+},
+{
+  "name":"org.osgi.framework.ServiceRegistration"
+},
+{
+  "name":"org.osgi.framework.SynchronousBundleListener"
+},
+{
+  "name":"org.osgi.framework.Version"
+},
+{
+  "name":"org.osgi.framework.launch.Framework"
+},
+{
+  "name":"org.osgi.framework.wiring.BundleCapability"
+},
+{
+  "name":"org.osgi.framework.wiring.BundleRevision"
+},
+{
+  "name":"org.osgi.framework.wiring.BundleWire"
+},
+{
+  "name":"org.osgi.framework.wiring.BundleWiring"
+},
+{
+  "name":"org.osgi.service.component.runtime.ServiceComponentRuntime"
+},
+{
+  "name":"org.osgi.service.condition.Condition"
+},
+{
+  "name":"org.osgi.service.condpermadmin.ConditionalPermissionAdmin"
+},
+{
+  "name":"org.osgi.service.log.LogService"
+},
+{
+  "name":"org.osgi.service.log.Logger"
+},
+{
+  "name":"org.osgi.service.log.LoggerFactory"
+},
+{
+  "name":"org.osgi.service.log.admin.LoggerAdmin"
+},
+{
+  "name":"org.osgi.service.packageadmin.PackageAdmin"
+},
+{
+  "name":"org.osgi.service.permissionadmin.PermissionAdmin"
+},
+{
+  "name":"org.osgi.service.resolver.Resolver"
+},
+{
+  "name":"org.osgi.service.startlevel.StartLevel"
+},
+{
+  "name":"org.osgi.util.tracker.BundleTracker"
+},
+{
+  "name":"org.osgi.util.tracker.BundleTrackerCustomizer"
+},
+{
+  "name":"org.osgi.util.tracker.ServiceTracker"
+},
+{
+  "name":"org.osgi.util.tracker.ServiceTrackerCustomizer"
+},
+{
+  "name":"org.xml.sax.Attributes"
+},
+{
+  "name":"org.xml.sax.SAXException"
+},
+{
+  "name":"org.xml.sax.helpers.DefaultHandler"
+},
+{
+  "name":"sun.misc.Unsafe",
+  "fields":[{"name":"theUnsafe"}],
+  "methods":[{"name":"defineAnonymousClass","parameterTypes":["java.lang.Class","byte[]","java.lang.Object[]"] }]
+}
+]

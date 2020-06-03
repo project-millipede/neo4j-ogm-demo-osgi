@@ -58,8 +58,13 @@
         <module>demo-impl</module>
         <module>demo-client</module>
         <module>demo-commands</module>
+        <module>demo-launch</module>
         <module>demo-feature</module>
+        <module>demo-bom-generator</module>
+        <module>demo-native-index</module>
+        <module>demo-native-image</module>
         <module>demo-distribution</module>
+
         <!--
         <module>demo-itest</module>
         -->

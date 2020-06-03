@@ -80,6 +80,16 @@
                         <enabled>true</enabled>
                     </snapshots>
                 </repository>
+                <repository>
+                    <id>atomos-temp-m2repo</id>
+                    <url>https://github.com/tjwatson/atomos-temp-m2repo/raw/master/repository</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
             </repositories>
         </profile>
     </profiles>
