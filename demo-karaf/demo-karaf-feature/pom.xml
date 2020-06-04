@@ -7,18 +7,17 @@
 
     <parent>
         <groupId>org.neo4j</groupId>
-        <artifactId>neo4j-ogm-demo-osgi</artifactId>
+        <artifactId>neo4j-ogm-demo-osgi-karaf</artifactId>
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>neo4j-ogm-demo-osgi-feature</artifactId>
+    <artifactId>neo4j-ogm-demo-osgi-karaf-feature</artifactId>
 
-    <name>Neo4J :: OGM :: Demo :: OSGI :: Feature</name>
+    <name>Neo4J :: OGM :: Demo :: OSGI :: Karaf :: Feature</name>
 
     <packaging>feature</packaging>
 
     <properties>
-        <karaf-maven-plugin.version>4.3.0.RC1</karaf-maven-plugin.version>
         <maven-resources-plugin.version>3.1.0</maven-resources-plugin.version>
         <session.config.file.name>session.config</session.config.file.name>
     </properties>
@@ -109,12 +108,6 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
                     <version>${maven-resources-plugin.version}</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.karaf.tooling</groupId>
-                    <artifactId>karaf-maven-plugin</artifactId>
-                    <version>${karaf-maven-plugin.version}</version>
-                    <extensions>true</extensions>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>

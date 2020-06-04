@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.neo4j</groupId>
+        <artifactId>neo4j-ogm-demo-osgi</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>neo4j-ogm-demo-osgi-karaf</artifactId>
+
+    <name>Neo4J :: OGM :: Demo :: OSGI :: Karaf</name>
+
+    <packaging>pom</packaging>
+
+    <properties>
+        <karaf-maven-plugin.version>4.3.0.RC1</karaf-maven-plugin.version>
+    </properties>
+
+    <modules>
+        <module>demo-karaf-feature</module>
+        <module>demo-karaf-distribution</module>
+    </modules>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.karaf.tooling</groupId>
+                    <artifactId>karaf-maven-plugin</artifactId>
+                    <version>${karaf-maven-plugin.version}</version>
+                    <extensions>true</extensions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>

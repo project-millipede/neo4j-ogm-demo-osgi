@@ -6,16 +6,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>neo4j-ogm-demo-osgi</artifactId>
         <groupId>org.neo4j</groupId>
+        <artifactId>neo4j-ogm-demo-osgi-karaf</artifactId>
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>neo4j-ogm-demo-osgi-distribution</artifactId>
+    <artifactId>neo4j-ogm-demo-osgi-karaf-distribution</artifactId>
 
     <packaging>karaf-assembly</packaging>
 
-    <name>Neo4J :: OGM :: Demo :: OSGI :: Distribution</name>
+    <name>Neo4J :: OGM :: Demo :: OSGI :: Karaf :: Distribution</name>
 
     <properties>
         <karaf.version>4.3.0.RC1</karaf.version>
@@ -51,7 +51,7 @@
 
         <dependency>
             <groupId>org.neo4j</groupId>
-            <artifactId>neo4j-ogm-demo-osgi-feature</artifactId>
+            <artifactId>neo4j-ogm-demo-osgi-karaf-feature</artifactId>
             <version>${project.version}</version>
             <type>xml</type>
             <classifier>features</classifier>
@@ -62,12 +62,6 @@
     <build>
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <groupId>org.apache.karaf.tooling</groupId>
-                    <artifactId>karaf-maven-plugin</artifactId>
-                    <version>${karaf.version}</version>
-                    <extensions>true</extensions>
-                </plugin>
                 <plugin>
                     <groupId>io.fabric8</groupId>
                     <artifactId>docker-maven-plugin</artifactId>
@@ -120,6 +114,9 @@
                                     <tag>${project.version}</tag>
                                 </tags>
                                 <assembly>
+                                    <inline>
+
+                                    </inline>
                                     <descriptor>assembly.xml</descriptor>
                                 </assembly>
                             </build>
