@@ -84,7 +84,7 @@
                     <bootFeatures>
                         <feature>minimal</feature>
                         <feature>scr</feature>
-                        <feature>neo4j-ogm-demo-osgi-feature</feature>
+                        <feature>neo4j-ogm-demo-osgi-karaf-feature</feature>
                     </bootFeatures>
                     <javase>11</javase>
                 </configuration>

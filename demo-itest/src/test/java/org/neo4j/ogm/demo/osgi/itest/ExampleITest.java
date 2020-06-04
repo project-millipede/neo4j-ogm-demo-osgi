@@ -29,8 +29,8 @@ public class ExampleITest extends KarafTestSupport {
 
     @Test
     public void listBundleCommand() throws Exception {
-        addFeaturesRepository("mvn:org.neo4j/neo4j-ogm-demo-osgi-feature/1.0.0/xml/features");
-        installAndAssertFeature("neo4j-ogm-demo-osgi-feature");
+        addFeaturesRepository("mvn:org.neo4j/neo4j-ogm-demo-osgi-karaf-feature/1.0.0/xml/features");
+        installAndAssertFeature("neo4j-ogm-demo-osgi-karaf-feature");
 
         Bundle bundle = findBundleByName("org.neo4j.ogm-demo-osgi-client");
         Assert.assertEquals(Bundle.ACTIVE, bundle.getState());
