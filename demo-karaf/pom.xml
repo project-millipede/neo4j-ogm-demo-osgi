@@ -18,10 +18,12 @@
     <packaging>pom</packaging>
 
     <properties>
+        <karaf.version>4.3.0.RC1</karaf.version>
         <karaf-maven-plugin.version>4.3.0.RC1</karaf-maven-plugin.version>
     </properties>
 
     <modules>
+        <module>demo-karaf-commands</module>
         <module>demo-karaf-feature</module>
         <module>demo-karaf-distribution</module>
     </modules>

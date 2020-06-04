@@ -6,21 +6,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>neo4j-ogm-demo-osgi</artifactId>
         <groupId>org.neo4j</groupId>
+        <artifactId>neo4j-ogm-demo-osgi-karaf</artifactId>
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>neo4j-ogm-demo-osgi-commands</artifactId>
+    <artifactId>neo4j-ogm-demo-osgi-karaf-commands</artifactId>
 
     <packaging>bundle</packaging>
 
-    <name>Neo4J :: OGM :: Demo :: OSGI :: Commands</name>
-
-    <properties>
-        <karaf.version>4.3.0.RC1</karaf.version>
-        <junit.version>4.11</junit.version>
-    </properties>
+    <name>Neo4J :: OGM :: Demo :: OSGI :: Karaf :: Commands</name>
 
     <dependencyManagement>
         <dependencies>
@@ -34,16 +29,16 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.apache.karaf.shell</groupId>
-            <artifactId>org.apache.karaf.shell.core</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>osgi.core</artifactId>
         </dependency>
         <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>osgi.cmpn</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.karaf.shell</groupId>
+            <artifactId>org.apache.karaf.shell.core</artifactId>
         </dependency>
         <!-- Create command -->
         <dependency>
@@ -61,13 +56,6 @@
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j-ogm-core</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
     </dependencies>
 
     <build>
@@ -78,9 +66,10 @@
                 <configuration>
                     <instructions>
                         <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-                        <Export-Package>org.neo4j.ogm.demo.osgi.commands*;version=${project.version};-noimport:=true
+                        <Export-Package>
+                            org.neo4j.ogm.demo.osgi.karaf.commands*;version=${project.version};-noimport:=true
                         </Export-Package>
-                        <Karaf-Commands>org.neo4j.ogm.demo.osgi.commands*</Karaf-Commands>
+                        <Karaf-Commands>org.neo4j.ogm.demo.osgi.commands.karaf*</Karaf-Commands>
                     </instructions>
                 </configuration>
             </plugin>

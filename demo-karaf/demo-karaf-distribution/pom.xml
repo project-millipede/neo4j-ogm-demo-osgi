@@ -18,7 +18,6 @@
     <name>Neo4J :: OGM :: Demo :: OSGI :: Karaf :: Distribution</name>
 
     <properties>
-        <karaf.version>4.3.0.RC1</karaf.version>
         <docker-maven-plugin.version>0.33.0</docker-maven-plugin.version>
 
         <!-- Docker Settings -->
@@ -114,9 +113,6 @@
                                     <tag>${project.version}</tag>
                                 </tags>
                                 <assembly>
-                                    <inline>
-
-                                    </inline>
                                     <descriptor>assembly.xml</descriptor>
                                 </assembly>
                             </build>

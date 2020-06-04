@@ -57,7 +57,6 @@
         <module>demo-model</module>
         <module>demo-impl</module>
         <module>demo-client</module>
-        <module>demo-commands</module>
         <module>demo-karaf</module>
         <!--
         <module>demo-itest</module>

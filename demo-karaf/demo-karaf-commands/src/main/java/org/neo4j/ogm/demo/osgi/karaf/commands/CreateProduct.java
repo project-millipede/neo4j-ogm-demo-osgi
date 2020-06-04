@@ -1,4 +1,4 @@
-package org.neo4j.ogm.demo.osgi.commands;
+package org.neo4j.ogm.demo.osgi.karaf.commands;
 
 import org.apache.karaf.shell.api.action.Action;
 import org.apache.karaf.shell.api.action.Command;
