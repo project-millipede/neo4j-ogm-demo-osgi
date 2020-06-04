@@ -69,7 +69,7 @@
                         <Export-Package>
                             org.neo4j.ogm.demo.osgi.karaf.commands*;version=${project.version};-noimport:=true
                         </Export-Package>
-                        <Karaf-Commands>org.neo4j.ogm.demo.osgi.commands.karaf*</Karaf-Commands>
+                        <Karaf-Commands>org.neo4j.ogm.demo.osgi.karaf.commands*</Karaf-Commands>
                     </instructions>
                 </configuration>
             </plugin>
