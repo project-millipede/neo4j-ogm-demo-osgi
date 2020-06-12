@@ -8,7 +8,6 @@ import org.osgi.service.component.annotations.Reference;
 
 @Component
 public class TestClient {
-
   @Reference private ProductService service;
 
   @Activate

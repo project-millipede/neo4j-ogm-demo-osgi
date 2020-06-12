@@ -20,7 +20,6 @@ import org.osgi.service.component.annotations.Reference;
     property = {"osgi.command.scope=product", "osgi.command.function=delete"},
     name = "delete.command")
 public class DeleteProduct {
-
   @Reference(target = "(component.factory=" + OGMSessionFactory.FACTORY_NAME + ")")
   private ComponentFactory<OGMSessionFactoryService> componentFactory;
 
@@ -33,7 +32,6 @@ public class DeleteProduct {
   @Descriptor("Delete entity product from data store based on its name")
   public void delete(@Descriptor("Enter productName to delete") String productName)
       throws Exception {
-
     System.out.println("Executing command product:delete");
     System.out.println("Argument productName: " + productName);
 

@@ -13,7 +13,6 @@ import org.osgi.service.component.annotations.Reference;
     property = {"osgi.command.scope=product", "osgi.command.function=create"},
     name = "create.command")
 public class CreateProduct {
-
   @Reference private ProductService service;
 
   /**

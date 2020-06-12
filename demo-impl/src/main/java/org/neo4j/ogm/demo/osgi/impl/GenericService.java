@@ -11,7 +11,6 @@ import org.osgi.service.component.ComponentInstance;
 import org.osgi.service.component.annotations.Reference;
 
 abstract class GenericService<T extends Entity> implements Service<T> {
-
   private static final int DEPTH_LIST = 0;
   private static final int DEPTH_ENTITY = 1;
 

@@ -36,6 +36,10 @@
         <!-- Plugin dependency version -->
         <bnd.version>5.1.0</bnd.version>
         <maven-jar-plugin.version>3.0.1</maven-jar-plugin.version>
+        <prettier-maven-plugin.version>0.8</prettier-maven-plugin.version>
+
+        <!-- Code formatter plugin -->
+        <plugin.prettier.goal>write</plugin.prettier.goal>
     </properties>
 
     <distributionManagement>
@@ -117,6 +121,26 @@
                         </execution>
                     </executions>
                 </plugin>
+                <plugin>
+                    <groupId>com.hubspot.maven.plugins</groupId>
+                    <artifactId>prettier-maven-plugin</artifactId>
+                    <version>${prettier-maven-plugin.version}</version>
+                    <configuration>
+                        <printWidth>120</printWidth>
+                        <tabWidth>2</tabWidth>
+                        <useTabs>false</useTabs>
+                        <ignoreConfigFile>true</ignoreConfigFile>
+                        <ignoreEditorConfig>true</ignoreEditorConfig>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <phase>validate</phase>
+                            <goals>
+                                <goal>${plugin.prettier.goal}</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
             </plugins>
         </pluginManagement>
 
@@ -124,6 +148,10 @@
             <plugin>
                 <groupId>biz.aQute.bnd</groupId>
                 <artifactId>bnd-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.hubspot.maven.plugins</groupId>
+                <artifactId>prettier-maven-plugin</artifactId>
             </plugin>
         </plugins>
 

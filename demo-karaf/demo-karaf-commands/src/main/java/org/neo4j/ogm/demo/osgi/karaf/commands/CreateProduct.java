@@ -11,7 +11,6 @@ import org.neo4j.ogm.demo.osgi.model.Product;
 @Command(scope = "product", name = "create", description = "Creates and persists product")
 @Service
 public class CreateProduct implements Action {
-
   @Reference private ProductService service;
 
   @Option(

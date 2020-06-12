@@ -18,7 +18,6 @@ import org.osgi.service.component.ComponentInstance;
 @Command(scope = "product", name = "delete", description = "Delete a persisted product")
 @Service
 public class DeleteProduct implements Action {
-
   @Reference(filter = "(component.factory=" + OGMSessionFactory.FACTORY_NAME + ")")
   private ComponentFactory<OGMSessionFactoryService> componentFactory;
 
