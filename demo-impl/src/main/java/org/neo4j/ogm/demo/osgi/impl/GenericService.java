@@ -43,7 +43,7 @@ abstract class GenericService<T extends Entity> implements Service<T> {
     return sessionComponent;
   }
 
-  // @Reference
+  @Reference
   protected void setSessionComponent(OGMSessionComponentService sessionComponent) {
     this.sessionComponent = sessionComponent;
     try {

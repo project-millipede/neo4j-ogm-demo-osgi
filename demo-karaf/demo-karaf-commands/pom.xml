@@ -13,9 +13,9 @@
 
     <artifactId>neo4j-ogm-demo-osgi-karaf-commands</artifactId>
 
-    <packaging>bundle</packaging>
-
     <name>Neo4J :: OGM :: Demo :: OSGI :: Karaf :: Commands</name>
+
+    <description>Karaf commands, providing user interactions with the application.</description>
 
     <dependencyManagement>
         <dependencies>
@@ -45,7 +45,6 @@
             <groupId>org.neo4j</groupId>
             <artifactId>neo4j-ogm-demo-osgi-api</artifactId>
             <version>${project.version}</version>
-            <scope>compile</scope>
         </dependency>
         <!-- Delete command -->
         <dependency>
@@ -57,23 +56,5 @@
             <artifactId>neo4j-ogm-core</artifactId>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <configuration>
-                    <instructions>
-                        <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
-                        <Export-Package>
-                            org.neo4j.ogm.demo.osgi.karaf.commands*;version=${project.version};-noimport:=true
-                        </Export-Package>
-                        <Karaf-Commands>org.neo4j.ogm.demo.osgi.karaf.commands*</Karaf-Commands>
-                    </instructions>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

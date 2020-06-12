@@ -15,7 +15,7 @@
 
     <name>Neo4J :: OGM :: Demo :: OSGI :: Model</name>
 
-    <packaging>bundle</packaging>
+    <description>Model bundle, describing the data model of the application.</description>
 
     <dependencies>
         <dependency>
@@ -23,21 +23,5 @@
             <artifactId>neo4j-ogm-core</artifactId>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <configuration>
-                    <instructions>
-                        <Fragment-Host>org.neo4j.ogm-osgi</Fragment-Host>
-                        <Export-Package>org.neo4j.ogm.demo.osgi.model</Export-Package>
-                    </instructions>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
-
 
 </project>

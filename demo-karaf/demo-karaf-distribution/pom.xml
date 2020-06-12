@@ -17,6 +17,8 @@
 
     <name>Neo4J :: OGM :: Demo :: OSGI :: Karaf :: Distribution</name>
 
+    <description>Karaf distribution, assemble application artifacts in a docker image.</description>
+
     <properties>
         <docker-maven-plugin.version>0.33.0</docker-maven-plugin.version>
 

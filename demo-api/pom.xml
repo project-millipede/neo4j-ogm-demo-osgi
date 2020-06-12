@@ -15,7 +15,8 @@
 
     <name>Neo4J :: OGM :: Demo :: OSGI :: API</name>
 
-    <packaging>bundle</packaging>
+    <description>API bundle, containing the contract of CRUD-based operations available in the application.
+    </description>
 
     <dependencies>
         <dependency>

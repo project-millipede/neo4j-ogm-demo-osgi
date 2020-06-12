@@ -15,30 +15,27 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <java.version>11</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <maven.compiler.release>${java.version}</maven.compiler.release>
+
         <releases.repo.id>placeholder-releases.repo.id</releases.repo.id>
         <releases.repo.url>placeholder-releases.repo.url</releases.repo.url>
         <snapshots.repo.id>placeholder-snapshots.repo.id</snapshots.repo.id>
         <snapshots.repo.url>placeholder-snapshots.repo.url</snapshots.repo.url>
 
+        <!-- Major project dependency version -->
+        <neo4j-ogm.version>4.0.0-SNAPSHOT</neo4j-ogm.version>
+
+        <!-- OSGi dependency version -->
         <osgi.core.version>7.0.0</osgi.core.version>
         <osgi.cmpn.version>7.0.0</osgi.cmpn.version>
 
-        <neo4j-ogm.version>4.0.0-SNAPSHOT</neo4j-ogm.version>
-
-        <maven-bundle-plugin.version>4.2.1</maven-bundle-plugin.version>
-        <build-helper-maven-plugin.version>3.1.0</build-helper-maven-plugin.version>
-
-        <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
-
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
-        <maven.compiler.release>11</maven.compiler.release>
-
-        <!-- Override version for maven-install-plugin due to a bug in the latest version (3.0.0-M1) preventing the
-        installation of artifacts of package type feature. See: https://issues.apache.org/jira/browse/MINSTALL-151 -->
-        <maven-install-plugin.version>2.5.2</maven-install-plugin.version>
-        <!-- Override version for maven-deploy-plugin due to a bug similar to the maven-install-plugin -->
-        <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+        <!-- Plugin dependency version -->
+        <bnd.version>5.1.0</bnd.version>
+        <maven-jar-plugin.version>3.0.1</maven-jar-plugin.version>
     </properties>
 
     <distributionManagement>
@@ -58,10 +55,11 @@
         <module>demo-impl</module>
         <module>demo-client</module>
         <module>demo-karaf</module>
+        <module>demo-runtime</module>
         <!--
         <module>demo-itest</module>
         -->
-  </modules>
+    </modules>
 
     <dependencyManagement>
         <dependencies>
@@ -79,17 +77,7 @@
             </dependency>
             <dependency>
                 <groupId>org.neo4j</groupId>
-                <artifactId>neo4j-ogm-api</artifactId>
-                <version>${neo4j-ogm.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.neo4j</groupId>
                 <artifactId>neo4j-ogm-core</artifactId>
-                <version>${neo4j-ogm.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.neo4j</groupId>
-                <artifactId>neo4j-ogm-bolt-driver</artifactId>
                 <version>${neo4j-ogm.version}</version>
             </dependency>
             <dependency>
@@ -104,28 +92,38 @@
         <pluginManagement>
             <plugins>
                 <plugin>
-                    <groupId>org.apache.felix</groupId>
-                    <artifactId>maven-bundle-plugin</artifactId>
-                    <version>${maven-bundle-plugin.version}</version>
-                    <extensions>true</extensions>
-                </plugin>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>build-helper-maven-plugin</artifactId>
-                    <version>${build-helper-maven-plugin.version}</version>
-                </plugin>
-                <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>${maven-surefire-plugin.version}</version>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${maven-jar-plugin.version}</version>
+                    <configuration>
+                        <archive>
+                            <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
+                        </archive>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>biz.aQute.bnd</groupId>
+                    <artifactId>bnd-maven-plugin</artifactId>
+                    <version>${bnd.version}</version>
+                    <configuration>
+                        <bnd>
+                        </bnd>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>bnd-process</goal>
+                            </goals>
+                        </execution>
+                    </executions>
                 </plugin>
             </plugins>
         </pluginManagement>
 
         <plugins>
             <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-maven-plugin</artifactId>
             </plugin>
         </plugins>
 

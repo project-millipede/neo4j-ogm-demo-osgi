@@ -1,0 +1,2 @@
+Export-Package: org.neo4j.ogm.demo.osgi.model
+Fragment-Host: org.neo4j.ogm-osgi
