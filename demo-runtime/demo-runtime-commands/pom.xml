@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.neo4j</groupId>
+        <artifactId>neo4j-ogm-demo-osgi-runtime</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>neo4j-ogm-demo-osgi-runtime-commands</artifactId>
+
+    <name>Neo4J :: OGM :: Demo :: OSGI :: Runtime :: Commands</name>
+
+    <description>Runtime commands, providing user interactions with the application.</description>
+
+    <properties>
+        <org.apache.felix.gogo.command.version>1.1.0</org.apache.felix.gogo.command.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>osgi.core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>osgi.cmpn</artifactId>
+        </dependency>
+        <!-- Gogo shell dependency -->
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.gogo.command</artifactId>
+            <version>${org.apache.felix.gogo.command.version}</version>
+        </dependency>
+        <!-- Create command -->
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-demo-osgi-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-demo-osgi-model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- Delete command -->
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-osgi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-core</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.neo4j</groupId>
+        <artifactId>neo4j-ogm-demo-osgi</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>neo4j-ogm-demo-osgi-runtime-launch</artifactId>
+
+    <name>Neo4J :: OGM :: Demo :: OSGI :: Runtime :: Launch</name>
+
+    <packaging>pom</packaging>
+
+    <properties>
+        <osgi.promise.version>7.0.1</osgi.promise.version>
+        <org.osgi.service.log.version>1.4.0</org.osgi.service.log.version>
+        <org.apache.felix.scr.version>2.1.20</org.apache.felix.scr.version>
+        <bndrun.file>placeholder.bndrun</bndrun.file>
+    </properties>
+
+    <dependencies>
+        <!-- Artifacts :: OSGi Features -->
+        <!-- Artifacts :: OSGi Feature :: Command Line -->
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.gogo.command</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.gogo.jline</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.gogo.runtime</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        <!-- runtime is enough, no shell necessary
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.gogo.shell</artifactId>
+            <version>1.1.2</version>
+        </dependency>
+        -->
+
+        <!-- Artifacts :: OSGi Feature :: Declarative Service -->
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.scr</artifactId>
+            <version>${org.apache.felix.scr.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>osgi.promise</artifactId>
+            <version>${osgi.promise.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.service.log</artifactId>
+            <version>${org.osgi.service.log.version}</version>
+        </dependency>
+
+        <!-- Artifacts :: Application Specific -->
+        <!-- Artifacts :: Session Factory Configuration -->
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-demo-osgi-runtime-config</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!--  Artifacts :: Shell Commands -->
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-demo-osgi-runtime-commands</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- Artifacts :: Neo4j-OGM - declared through Apache Karaf feature sets - effect of bill of material declaration -->
+        <dependency>
+            <groupId>org.neo4j.driver</groupId>
+            <artifactId>neo4j-java-driver-feature</artifactId>
+            <version>4.0-SNAPSHOT</version>
+            <type>xml</type>
+            <classifier>features</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-api-feature</artifactId>
+            <version>${neo4j-ogm.version}</version>
+            <type>xml</type>
+            <classifier>features</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-core-feature</artifactId>
+            <version>${neo4j-ogm.version}</version>
+            <type>xml</type>
+            <classifier>features</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-bolt-driver-feature</artifactId>
+            <version>${neo4j-ogm.version}</version>
+            <type>xml</type>
+            <classifier>features</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-osgi-feature</artifactId>
+            <version>${neo4j-ogm.version}</version>
+            <type>xml</type>
+            <classifier>features</classifier>
+        </dependency>
+
+        <!-- Artifacts :: Demo -->
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-demo-osgi-model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-demo-osgi-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-demo-osgi-impl</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-demo-osgi-client</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-resolver-maven-plugin</artifactId>
+                <version>${bnd.version}</version>
+                <configuration>
+                    <failOnChanges>false</failOnChanges>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>resolve</goal>
+                        </goals>
+                        <configuration>
+                            <bndruns>
+                                <bndrun>${bndrun.file}</bndrun>
+                            </bndruns>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>biz.aQute.bnd</groupId>
+                <artifactId>bnd-export-maven-plugin</artifactId>
+                <version>${bnd.version}</version>
+                <configuration>
+                    <bndruns>
+                        <bndrun>${bndrun.file}</bndrun>
+                    </bndruns>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>export</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>equinox</id>
+            <properties>
+                <bndrun.file>app-equinox.bndrun</bndrun.file>
+
+                <!-- OSGi runtime version -->
+                <org.eclipse.osgi.version>3.15.200</org.eclipse.osgi.version>
+
+                <!-- Log dependency version -->
+                <org.eclipse.equinox.log.stream.version>1.0.200</org.eclipse.equinox.log.stream.version>
+                <slf4j-api.version>1.7.30</slf4j-api.version>
+                <logback-classic.version>1.2.3</logback-classic.version>
+                <logback-core.version>1.2.3</logback-core.version>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.eclipse.platform</groupId>
+                    <artifactId>org.eclipse.osgi</artifactId>
+                    <version>${org.eclipse.osgi.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.eclipse.platform</groupId>
+                    <artifactId>org.eclipse.equinox.log.stream</artifactId>
+                    <version>${org.eclipse.equinox.log.stream.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                    <version>${slf4j-api.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-classic</artifactId>
+                    <version>${logback-classic.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-core</artifactId>
+                    <version>${logback-core.version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+        <profile>
+            <id>felix</id>
+            <properties>
+                <bndrun.file>app-felix.bndrun</bndrun.file>
+
+                <!-- OSGi runtime version - felix -->
+                <org.apache.felix.framework.version>6.0.3</org.apache.felix.framework.version>
+
+                <!-- Log dependency version -->
+                <org.apache.felix.logback.version>1.0.2</org.apache.felix.logback.version>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>org.apache.felix.framework</artifactId>
+                    <version>${org.apache.felix.framework.version}</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>org.apache.felix.logback</artifactId>
+                    <version>${org.apache.felix.logback.version}</version>
+                </dependency>
+            </dependencies>
+        </profile>
+    </profiles>
+
+</project>

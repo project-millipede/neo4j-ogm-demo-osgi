@@ -1,0 +1,23 @@
+{
+  ":configurator:resource-version": 1,
+  ":configurator:symbolic-name": "neo4j-ogm-demo-osgi-runtime-config",
+  ":configurator:version": "1.0.0",
+  "ogm.session.component.pid": {
+    "username": "neo4j",
+    "password": "neo4jPWD",
+    "uri": "bolt://localhost:7687",
+    "domain.packages": [
+      "org.neo4j.ogm.demo.osgi.model",
+      "org.neo4j.ogm.demo.osgi.model.second"
+    ]
+  },
+  "ogm.session.factory.pid": {
+    "username": "neo4j",
+    "password": "neo4jPWD",
+    "uri": "bolt://localhost:7687",
+    "domain.packages": [
+      "org.neo4j.ogm.demo.osgi.model",
+      "org.neo4j.ogm.demo.osgi.model.second"
+    ]
+  }
+}
