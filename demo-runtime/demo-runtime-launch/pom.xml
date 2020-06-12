@@ -188,6 +188,9 @@
     <profiles>
         <profile>
             <id>equinox</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <bndrun.file>app-equinox.bndrun</bndrun.file>
 
