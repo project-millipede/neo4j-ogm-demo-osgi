@@ -111,6 +111,7 @@
                     <version>${bnd.version}</version>
                     <configuration>
                         <bnd>
+                            -jpms-module-info:
                         </bnd>
                     </configuration>
                     <executions>
