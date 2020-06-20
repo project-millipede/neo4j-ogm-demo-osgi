@@ -3,18 +3,18 @@
   ":configurator:symbolic-name": "neo4j-ogm-demo-osgi-runtime-config",
   ":configurator:version": "1.0.0",
   "ogm.session.component.pid": {
-    "username": "$[env:OGM_DB_USERNAME;default=neo4j]",
-    "password": "$[env:OGM_DB_PASSWORD;default=neo4jPWD]",
-    "uri": "$[env:OGM_SESSION_URI;default=bolt://localhost:7687]",
+    "username": "$[env:DB_USERNAME;default=neo4j]",
+    "password": "$[env:DB_PASSWORD;default=neo4jPWD]",
+    "uri": "$[env:DB_URI;default=bolt://localhost:7687]",
     "domain.packages": [
       "org.neo4j.ogm.demo.osgi.model",
       "org.neo4j.ogm.demo.osgi.model.second"
     ]
   },
   "ogm.session.factory.pid": {
-    "username": "$[env:OGM_DB_USERNAME;default=neo4j]",
-    "password": "$[env:OGM_DB_PASSWORD;default=neo4jPWD]",
-    "uri": "$[env:OGM_SESSION_URI;default=bolt://localhost:7687]",
+    "username": "$[env:DB_USERNAME;default=neo4j]",
+    "password": "$[env:DB_PASSWORD;default=neo4jPWD]",
+    "uri": "$[env:DB_URI;default=bolt://localhost:7687]",
     "domain.packages": [
       "org.neo4j.ogm.demo.osgi.model",
       "org.neo4j.ogm.demo.osgi.model.second"
