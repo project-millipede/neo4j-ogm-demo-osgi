@@ -78,7 +78,7 @@
         <dependency>
             <groupId>org.millipede</groupId>
             <artifactId>osgi-config-extension-feature</artifactId>
-            <version>1.0.0</version>
+            <version>1.0.0-SNAPSHOT</version>
             <type>xml</type>
             <classifier>features</classifier>
         </dependency>
