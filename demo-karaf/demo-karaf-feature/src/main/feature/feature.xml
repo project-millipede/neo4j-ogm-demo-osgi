@@ -3,14 +3,6 @@
     <feature name='${project.artifactId}' description='${project.name}' version='${project.version}'>
         <details>${project.description}</details>
 
-        <configfile finalname="${KARAF_HOME}/etc/ogm.session.component.pid.config" override="true">
-            mvn:${project.groupId}/${project.artifactId}/${project.version}/config/session
-        </configfile>
-
-        <configfile finalname="${KARAF_HOME}/etc/ogm.session.factory.pid.config" override="true">
-            mvn:${project.groupId}/${project.artifactId}/${project.version}/config/session
-        </configfile>
-
         <!--
         Note:
         SCR feature has to be enabled when staring Apache Karaf and installing this feature manually.

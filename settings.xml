@@ -60,6 +60,17 @@
                         <enabled>true</enabled>
                     </snapshots>
                 </repository>
+                <!-- Apache Karaf feature - Config Extension - OSGi R7 Configurator, Config Admin Interpolation -->
+                <repository>
+                    <id>gitlab-neo4j-ogm</id>
+                    <url>https://gitlab.com/api/v4/projects/19494109/packages/maven</url>
+                    <releases>
+                        <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                        <enabled>true</enabled>
+                    </snapshots>
+                </repository>
                 <!--
                 Fragment bundle refresh - optional runtime dependency, hosted at Gitlab maven registry.
 
